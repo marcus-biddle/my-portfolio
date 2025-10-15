@@ -4,6 +4,7 @@ import { SlSocialLinkedin } from "react-icons/sl";
 import { FaGithub } from "react-icons/fa";
 import useHalfwaySnapScroll from './hooks/useSnapScrollReturn';
 import { CgMenu } from "react-icons/cg";
+import { useCounter } from './hooks/useCounter';
 
 const prevEmployments = [
   {
@@ -83,7 +84,7 @@ const words = [
 ];
 
 function App() {
-  const ref = useRef(null);
+  const { counts, trackClick } = useCounter();
   const { refs } = useHalfwaySnapScroll(5);
   const { scrollYProgress } = useScroll({
     target: refs[0],
@@ -92,9 +93,7 @@ function App() {
 
   const textY = useTransform(scrollYProgress, [0, .8], ["0%", "90%"]);
   const backgroundY = useTransform(scrollYProgress, [0,1], ["-10%", "0%"]);
-  const heightY = useTransform(scrollYProgress, [0,1], ["100%", "0%"]);
   const radiusY = useTransform(scrollYProgress, [0,1], ["2rem", "0rem"]);
-  // const colorY = useTransform(scrollYProgress, [0, .45], ["#ffffff", "#000000"]);
   const opacityY = useTransform(scrollYProgress, [0, 1], ["100%", "0%"])
 
   return (
@@ -109,9 +108,14 @@ function App() {
               <span className=' hover:bg-slate-500 py-2 px-6 rounded-full'>Experience</span>
               <span className=' hover:bg-slate-500 py-2 px-6 rounded-full'>Contact</span>
             </div>
-            {/* <button type='button' className='bg-indigo-500 font-inter text-white font-bold tracking-wide border border-indigo-500 rounded-full py-4 px-6 capitalize'></button> */}
+            <div className="text-sm text-gray-500">
+              Views: {counts.views}
+            </div>
           </div>
           <button className=' md:hidden'>
+            <div className="text-sm text-gray-500">
+              Views: {counts.views}
+            </div>
             <CgMenu className='size-14' />
           </button>
         </header>
@@ -140,7 +144,7 @@ function App() {
               </div>
               <div className='flex justify-center items-center gap-2 mb-4'>
                   <button className='bg-indigo-500 border-2 border-black shadow-2xl text-black/80 font-bold rounded-full  uppercase tracking-wide px-6 py-2 md:px-8 md:py-4'>Resume</button>
-                  <button className='bg-black text-indigo-500 border-2 border-indigo-600 rounded-full shadow-2xl uppercase tracking-wide font-bold px-6 py-2 md:px-8 md:py-4'>Projects</button>
+                  <button onClick={() => trackClick('projects')} className='bg-black text-indigo-500 border-2 border-indigo-600 rounded-full shadow-2xl uppercase tracking-wide font-bold px-6 py-2 md:px-8 md:py-4'>Projects</button>
                 </div>
             </div>
       </motion.section>
