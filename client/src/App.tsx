@@ -1,5 +1,4 @@
-import {motion, useScroll, useSpring, useTransform} from 'framer-motion';
-import { useRef } from 'react';
+import {motion, useScroll, useTransform} from 'framer-motion';
 import { SlSocialLinkedin } from "react-icons/sl";
 import { FaGithub } from "react-icons/fa";
 import useHalfwaySnapScroll from './hooks/useSnapScrollReturn';
@@ -69,19 +68,6 @@ const skills = {
   };
 
 const homeParagraph = 'I am an aspiring web developer passionate about building clean, responsive, and user-friendly websites and applications. With a strong foundation in modern JavaScript, React, and front-end design principles, I enjoy transforming creative ideas into functional digital experiences. Eager to grow and collaborate, I am dedicated to continuous learning and advancing my skills to deliver impactful solutions.';
-
-const words = [
-  "Innovative",
-  "Driven",
-  "Detail-oriented",
-  "Collaborative",
-  "Passionate",
-  "Creative",
-  "Analytical",
-  "Adaptable",
-  "Reliable",
-  "Problem-solver",
-];
 
 function App() {
   const { counts, trackClick } = useCounter();
