@@ -1,10 +1,7 @@
 import PageSection from '../components/PageSection'
-import { TbDeviceProjector } from "react-icons/tb";
-import { GoArrowUpRight } from "react-icons/go";
 
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
-import { RippleButton } from '../framer/RippleButton';
 
 export function HoverRevealText({
   text,
@@ -39,7 +36,7 @@ export function HoverRevealText({
   return (
     <motion.div
       ref={ref}
-      className={`relative overflow-hidden cursor-pointer inline-flex ${classname}`}
+      className={`relative overflow-hidden cursor-pointer inline-flex ${classname} z-50`}
       initial="rest"
       animate={controls}
       whileHover="hover"
@@ -65,7 +62,8 @@ export function HoverRevealText({
 export const HomePage = () => {
   return (
     <PageSection id="home" title='Marcus Biddle' subtitle='Tech Enthusiast'>
-        <div className='flex flex-row gap-4'>
+      <></>
+        {/* <div className='flex flex-row gap-4'>
             <RippleButton className='flex items-center border border-slate-400/20 shadow-2xl text-slate-900 justify-center gap-2 bg-slate-400 rounded-full py-2 px-4'>
               <HoverRevealText text='Projects'  />
               <TbDeviceProjector className=' size-6' />
@@ -74,7 +72,7 @@ export const HomePage = () => {
               <HoverRevealText text='Resume'  />
               <GoArrowUpRight className=' size-6' />
             </RippleButton>
-        </div>
+        </div> */}
     </PageSection>
   )
 }
