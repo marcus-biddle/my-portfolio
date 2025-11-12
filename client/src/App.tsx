@@ -3,7 +3,7 @@ import { ProjectsPage } from './sections/ProjectsPage';
 import { SkillsPage } from './sections/SkillsPage';
 import { ContactPage } from './sections/ContactPage';
 import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
-import { TypographyBlockquote, TypographyH1, TypographyH3, TypographyP,  } from './components/Typography';
+import { TypographyBlockquote, TypographyH3, TypographyP,  } from './components/Typography';
 import {
   FileItem,
   FolderItem,
