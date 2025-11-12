@@ -1,16 +1,5 @@
-"use client"
 
-import { TrendingUp } from "lucide-react"
 import { Pie, PieChart } from "recharts"
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import {
   type ChartConfig,
   ChartContainer,
@@ -44,14 +33,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-function labelFormatter(label, payload) {
-  if (payload && payload.length > 0) {
-    const percent = payload[0].payload.percent;
-    return `${(percent * 100).toFixed(2)}%`;
-  }
-  return label;
-}
-
 
 export function ChartPieDonut({ chartData }: { chartData: any[] }) {
   return (
@@ -62,7 +43,7 @@ export function ChartPieDonut({ chartData }: { chartData: any[] }) {
         <PieChart>
         <ChartTooltip
             cursor={false}
-            content={<ChartTooltipContent hideLabel labelFormatter={labelFormatter} />}
+            content={<ChartTooltipContent hideLabel />}
         />
         <Pie
             data={chartData}

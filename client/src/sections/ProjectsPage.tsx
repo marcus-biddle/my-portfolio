@@ -1,6 +1,4 @@
 import PageSection from '../components/PageSection'
-import { FaGithub } from 'react-icons/fa'
-import { GoArrowUpRight } from "react-icons/go";
 import { CiCircleCheck } from "react-icons/ci";
 import { TbDeviceProjector } from "react-icons/tb";
 import {
@@ -92,7 +90,7 @@ export const ProjectsPage = () => {
     {projects.map((project, index) => (
           <CarouselItem key={index} className="md:basis-2/3 ">
             <div className="p-1">
-              <Card className='bg-slate-900 border border-slate-700'>
+              <Card className='bg-slate-950/50 border border-slate-700'>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.subtitle}</CardDescription>
@@ -121,54 +119,6 @@ export const ProjectsPage = () => {
   <CarouselPrevious className='bg-slate-900' />
   <CarouselNext className='bg-slate-900' />
 </Carousel>
-      <div className="w-full flex flex-col md:flex-row flex-wrap gap-8">
-        {projects.map((proj, i) => (
-          <div key={i} className="relative flex-1 rounded-lg overflow-hidden w-full md:w-1/3">
-            <div
-              className="absolute blur-xs pointer-events-none inset-0 z-10 bg-black bg-opacity-50 border-2 border-gray-900/50 rounded-md"
-              style={{
-                backgroundImage: `url(${proj.bgImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: '0.4',
-              }}
-            />
-
-            <div className="relative select-auto z-20 p-6 text-white font-inter">
-              <div className="space-y-4 border-b-1 pb-4 border-slate-500/70">
-                <div className="space-x-1 uppercase text-xs text-cyan-500/80 tracking-tight">
-                  <span>{proj.subtitle}</span>
-                </div>
-                <h4 className="text-3xl">{proj.title}</h4>
-              </div>
-
-              <div className="space-y-2 my-8 ">
-                {proj.points.map((point, idx) => (
-                  <div key={idx} className="flex gap-1 items-start text-white">
-                    <CiCircleCheck className="size-6 flex-shrink-0" />
-                    <span className='text-white'>{point}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex justify-center items-center gap-2 my-4">
-                <a href={proj.github} target="_blank" rel="noopener noreferrer">
-                  <FaGithub className="size-10" />
-                </a>
-                <a
-                  href={proj.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-200 text-black w-full rounded-md py-2 flex gap-1 items-center justify-center"
-                >
-                  View Demo
-                  <GoArrowUpRight className="size-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
     </PageSection>
   );
 };

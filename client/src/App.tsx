@@ -13,6 +13,7 @@ import {
   SubFiles,
 } from '@/components/animate-ui/components/radix/files';
 import { useEffect, useState } from 'react';
+import { Card } from './components/ui/card';
 
 const RadixFilesDemo = () => {
   const [open, setOpen] = useState(['projects'])
@@ -29,7 +30,7 @@ const RadixFilesDemo = () => {
   }, [open])
 
   return (
-    <div className="relative text-white w-[500px] rounded-md border border-slate-700 bg-slate-950 overflow-auto z-100">
+    <div className="relative text-white w-full rounded-md border border-slate-900 bg-slate-950/50 overflow-auto z-100">
       <Files className="w-full" defaultOpen={['portfolio']} >
         <FolderItem value="portfolio">
           <FolderTrigger
@@ -102,29 +103,27 @@ function App() {
  
 
   return (
-    <div className='relative min-h-screen bg-black'>
-      <GravityStarsBackground starsOpacity={.85} className='fixed text-emerald-500' />
+    <div className='relative min-h-screen bg-black p-8'>
+      <GravityStarsBackground starsOpacity={.85} className='fixed z-40 text-emerald-500' />
     <NavProvider>
     {/* <NavigationMenu /> */}
-    <div className='fixed flex items-center justify-center w-full p-4'>
-      <RadixFilesDemo />
-    </div>
     
-    <main className='font-inter text-white p-8 z-50'>
-      <div className='h-screen flex flex-col items-center space-y-12 pt-32'>
-        <div className='text-slate-500'>
-          <TypographyBlockquote>&quot;The only thing that is constant is change.&quot; {'-'} Heraclitus</TypographyBlockquote>
+    <main className='font-inter z-50 text-white flex flex-col'>
+      <div className='relative h-screen w-full flex flex-col items-center rounded-xl'>
+        <div className='stickey w-full'>
+          <RadixFilesDemo />
         </div>
-        <div id={'home'} className='space-y-8'>
-          <TypographyH1>Marcus Biddle</TypographyH1>
-          {/* <div className='flex justify-around gap-4'>
-            <TypographyInlineCode>Web Developer</TypographyInlineCode>
-            <TypographyInlineCode>Entrepreneur</TypographyInlineCode>
-            <TypographyInlineCode>Chess Enthusiast</TypographyInlineCode>
-          </div> */}
+        <div className='flex flex-col items-center justify-around h-full'>
+<Card className='bg-slate-950/50 text-white flex flex-col items-center justify-center aspect-square border-slate-900'>
+          <div className='text-slate-500 p-4'>
+            <TypographyBlockquote >&quot;The only thing that is constant is change.&quot; {'-'} Heraclitus</TypographyBlockquote>
+          </div>
+          <div id={'home'} className='space-y-8'>
+            <TypographyH1>Marcus Biddle</TypographyH1>
+          </div>
+        </Card>
         </div>
         
-
       </div>
       {/* <HomePage /> */}
       <ProjectsPage />
