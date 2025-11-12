@@ -3,7 +3,7 @@ import { ProjectsPage } from './sections/ProjectsPage';
 import { SkillsPage } from './sections/SkillsPage';
 import { ContactPage } from './sections/ContactPage';
 import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
-import { TypographyBlockquote, TypographyH1,  } from './components/Typography';
+import { TypographyBlockquote, TypographyH1, TypographyH3, TypographyP,  } from './components/Typography';
 import {
   FileItem,
   FolderItem,
@@ -13,7 +13,11 @@ import {
   SubFiles,
 } from '@/components/animate-ui/components/radix/files';
 import { useEffect, useState } from 'react';
-import { Card } from './components/ui/card';
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './components/ui/card';
+import { IoDownloadOutline } from "react-icons/io5";
+import { Button } from './components/ui/button';
+import pfp from './assets/pfp.jpg';
+import { AspectRatio } from './components/ui/aspect-ratio';
 
 const RadixFilesDemo = () => {
   const [open, setOpen] = useState(['projects'])
@@ -30,7 +34,7 @@ const RadixFilesDemo = () => {
   }, [open])
 
   return (
-    <div className="relative text-white w-full rounded-md border border-slate-900 bg-slate-950/50 overflow-auto z-100">
+    <div className="relative text-white w-full rounded-md border border-slate-700 bg-slate-950/80 overflow-auto z-100">
       <Files className="w-full" defaultOpen={['portfolio']} >
         <FolderItem value="portfolio">
           <FolderTrigger
@@ -108,19 +112,44 @@ function App() {
     <NavProvider>
     {/* <NavigationMenu /> */}
     
-    <main className='font-inter z-50 text-white flex flex-col'>
-      <div className='relative h-screen w-full flex flex-col items-center rounded-xl'>
+    <main className='font-inter z-90 text-white flex flex-col'>
+      <div className='relative h-screen w-full flex flex-col items-center rounded-xl space-y-8'>
         <div className='stickey w-full'>
           <RadixFilesDemo />
         </div>
-        <div className='flex flex-col items-center justify-around h-full'>
-<Card className='bg-slate-950/50 text-white flex flex-col items-center justify-center aspect-square border-slate-900'>
-          <div className='text-slate-500 p-4'>
+        <div className='flex flex-col h-full'>
+          <Card className='bg-slate-950/50 text-white border border-slate-700'>
+          <CardHeader>
+            <CardTitle className='text-slate-300'>
+              <TypographyH3>Marcus Biddle</TypographyH3>
+            </CardTitle>
+            <CardDescription className='text-slate-500'>
+              <TypographyP>Scroll down to learn more</TypographyP>
+            </CardDescription>
+            <CardAction>
+              <Button variant={'outline'} size={'icon-lg'} className='bg-slate-900 border-slate-700'>
+                <IoDownloadOutline className=' size-6' />
+              </Button>
+            </CardAction>
+          </CardHeader>
+          <CardContent>
+            <AspectRatio ratio={16/9} className="bg-transparent">
+                <img
+                  src={pfp}
+                  alt="Photo by Drew Beamer"
+                  className="h-full w-full rounded-4xl object-cover border border-slate-900"
+                />
+            </AspectRatio>
+            <div className='text-emerald-700 p-2'>
             <TypographyBlockquote >&quot;The only thing that is constant is change.&quot; {'-'} Heraclitus</TypographyBlockquote>
           </div>
-          <div id={'home'} className='space-y-8'>
-            <TypographyH1>Marcus Biddle</TypographyH1>
-          </div>
+            {/* <TypographyH1>Marcus Biddle</TypographyH1> */}
+          </CardContent>
+          <CardFooter className='flex justify-end gap-4'>
+            <Button variant={'outline'} className='bg-transparent border-slate-700'>Github</Button>
+            <Button>Projects</Button>
+          </CardFooter>
+          
         </Card>
         </div>
         

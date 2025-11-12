@@ -20,10 +20,10 @@ export function TypographyH2() {
   )
 }
 
-export function TypographyH3() {
+export function TypographyH3({ children }: TextProps) {
   return (
     <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-      The Joke Tax
+      {children}
     </h3>
   )
 }
@@ -36,11 +36,10 @@ export function TypographyH4() {
   )
 }
 
-export function TypographyP() {
+export function TypographyP({ children }: TextProps) {
   return (
     <p className="leading-7 [&:not(:first-child)]:mt-6">
-      The king, seeing how much happier his subjects were, realized the error of
-      his ways and repealed the joke tax.
+      {children}
     </p>
   )
 }
