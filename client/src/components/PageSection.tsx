@@ -30,7 +30,7 @@ export default function PageSection({ id, title, subtitle, titleIcon: Icon, chil
       transition={{ duration: 0.6, ease: "easeInOut" }}
       ref={ref}
       id={id}
-      className='min-h-screen flex flex-col justify-center text-white bg-gradient-to-l from-gray-800 to-gray-900 py-12'
+      className='min-h-screen flex flex-col justify-center text-white  py-12 z-50'
     >
         <div className={`${Icon ? 'flex' : ''} px-8 py-10 gap-2 `}>
             {Icon && <div> <Icon className=" h-full w-10 " /> </div>}
@@ -40,7 +40,7 @@ export default function PageSection({ id, title, subtitle, titleIcon: Icon, chil
                 {title && <h1 className="text-2xl md:text-6xl font-bold font-display mb-4 text-pink-500">{title}</h1>}
             </div>
         </div>
-        <div className="w-full flex flex-col items-center font-inter p-8 md:px-32">{children}</div>
+        <div className="w-full flex flex-col items-center font-inter">{children}</div>
     </motion.section>
   );
 }
