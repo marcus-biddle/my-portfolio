@@ -133,7 +133,7 @@ function App() {
             </CardAction>
           </CardHeader>
           <CardContent>
-            <AspectRatio ratio={16/9} className="bg-transparent">
+            <AspectRatio ratio={16/16} className="bg-transparent">
                 <img
                   src={pfp}
                   alt="Photo by Drew Beamer"
