@@ -3,6 +3,16 @@ import { FaGithub } from 'react-icons/fa'
 import { GoArrowUpRight } from "react-icons/go";
 import { CiCircleCheck } from "react-icons/ci";
 import { TbDeviceProjector } from "react-icons/tb";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ChartPieDonut } from '@/components/PieChart';
 
 const projects = [
   {
@@ -18,6 +28,13 @@ const projects = [
     ],
     github: 'https://github.com/marcus-biddle/75-Edition',
     demo: 'https://75-edition.vercel.app/',
+    chartData: [
+      { language: "javascript", allocation: 0, fill: "var(--color-javascript)" },
+      { language: "typescript", allocation: .988, fill: "var(--color-typescript)" },
+      { language: "html", allocation: 0, fill: "var(--color-html)" },
+      { language: "css", allocation: 0, fill: "var(--color-css)" },
+      { language: "other", allocation: .012, fill: "var(--color-other)" },
+    ]
   },
   {
     title: 'Stock News Hub',
@@ -32,6 +49,13 @@ const projects = [
     ],
     github: 'https://github.com/marcus-biddle/Stock-Tracker',
     demo: 'https://stock-tracker-roan.vercel.app/',
+    chartData: [
+      { language: "javascript", allocation: .161, fill: "var(--color-javascript)" },
+      { language: "typescript", allocation: .718, fill: "var(--color-typescript)" },
+      { language: "html", allocation: .014, fill: "var(--color-html)" },
+      { language: "css", allocation: .032, fill: "var(--color-css)" },
+      { language: "other", allocation: .075, fill: "var(--color-other)" },
+    ]
   },
   {
     title: 'FitTrack',
@@ -45,12 +69,58 @@ const projects = [
     ],
     github: 'https://github.com/marcus-biddle/FitTrackPro',
     demo: 'https://fit-track-pro-beta.vercel.app/',
+    chartData: [
+      { language: "javascript", allocation: .185, fill: "var(--color-javascript)" },
+      { language: "typescript", allocation: .797, fill: "var(--color-typescript)" },
+      { language: "html", allocation: .005, fill: "var(--color-html)" },
+      { language: "css", allocation: .013, fill: "var(--color-css)" },
+      { language: "other", allocation: 0, fill: "var(--color-other)" },
+    ]
   },
 ];
 
 export const ProjectsPage = () => {
   return (
     <PageSection id="projects" title="Projects" subtitle="workshop" titleIcon={TbDeviceProjector}>
+      <Carousel
+      opts={{
+        align: "start",
+      }}
+      className="w-full max-w-4xl"
+    >
+  <CarouselContent>
+    {projects.map((project, index) => (
+          <CarouselItem key={index} className="md:basis-2/3 ">
+            <div className="p-1">
+              <Card className='bg-slate-900 border border-slate-700'>
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                  <CardDescription>{project.subtitle}</CardDescription>
+                  <CardAction>
+                    <Button variant='link' className='text-white hover:underline-offset-4 hover:underline cursor-pointer'>Demo</Button>
+                  </CardAction>
+                </CardHeader>
+                <CardContent className="flex flex-col justify-around aspect-square p-6 w-full">
+                  <div className='w-full'>
+                    <ChartPieDonut chartData={project.chartData} />
+                  </div>
+                  <div className="space-y-2 text-white">
+                  {project.points.map((point, idx) => (
+                    <div key={idx} className="flex gap-1 items-start">
+                      <CiCircleCheck className="size-6 flex-shrink-0" />
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+  </CarouselContent>
+  <CarouselPrevious className='bg-slate-900' />
+  <CarouselNext className='bg-slate-900' />
+</Carousel>
       <div className="w-full flex flex-col md:flex-row flex-wrap gap-8">
         {projects.map((proj, i) => (
           <div key={i} className="relative flex-1 rounded-lg overflow-hidden w-full md:w-1/3">
@@ -72,11 +142,11 @@ export const ProjectsPage = () => {
                 <h4 className="text-3xl">{proj.title}</h4>
               </div>
 
-              <div className="space-y-2 my-8">
+              <div className="space-y-2 my-8 ">
                 {proj.points.map((point, idx) => (
-                  <div key={idx} className="flex gap-1 items-start">
+                  <div key={idx} className="flex gap-1 items-start text-white">
                     <CiCircleCheck className="size-6 flex-shrink-0" />
-                    <span>{point}</span>
+                    <span className='text-white'>{point}</span>
                   </div>
                 ))}
               </div>

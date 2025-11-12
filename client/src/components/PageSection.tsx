@@ -40,7 +40,7 @@ export default function PageSection({ id, title, subtitle, titleIcon: Icon, chil
                 {title && <h1 className="text-2xl md:text-6xl font-bold font-display mb-4 text-pink-500">{title}</h1>}
             </div>
         </div>
-        <div className="w-full flex flex-col items-center font-inter p-8 md:px-32">{children}</div>
+        <div className="w-full flex flex-col items-center font-inter">{children}</div>
     </motion.section>
   );
 }

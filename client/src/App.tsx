@@ -98,14 +98,6 @@ const RadixFilesDemo = () => {
 };
 
 function App() {
-  // const { isDark, toggle } = useDarkMode();
-  // const ref = useRef(null);
-  
-  // console.log('test',isDark, toggle)
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start start", "end start"],
-  // });
 
  
 
