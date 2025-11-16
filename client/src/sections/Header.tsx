@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <motion.div
-      className={` text-white border border-slate-700 bg-slate-950/80 overflow-auto z-90 flex justify-between items-center ${
+      className={` text-white border border-slate-900 bg-slate-950/80 overflow-auto z-90 flex justify-between items-center ${
         scrolled
           ? "m-8 py-2 px-4 rounded-lg transition-all duration-300"
           : "m-0 p-2 rounded-none transition-all duration-300"

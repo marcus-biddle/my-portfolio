@@ -208,7 +208,7 @@ function App() {
           in the process. When I'm not hunched over at my computer, I enjoy going to the gym or being out in nature, which influences my interests in what I create.
         </TypographyP>
 
-        <Separator className='my-12 bg-slate-500' />
+        <Separator className='my-12 bg-slate-900' />
         <div>
           {employment.map((job, index) => (
             <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-4 items-start">
@@ -229,7 +229,7 @@ function App() {
           ))}
         </div>
       </div>
-      <div className='relative w-full max-w-4xl flex flex-col items-center justify-center rounded-md Z-50 bg-slate-950/50 text-white border border-slate-700'>
+      <div className='relative w-full max-w-4xl flex flex-col items-center justify-center rounded-md Z-50 bg-slate-950/50 text-white border border-slate-900'>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 w-full">
           <div className='w-full flex flex-col justify-center'>
             <TypographyH4>University of California - Riverside</TypographyH4>
