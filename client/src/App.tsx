@@ -208,7 +208,7 @@ function App() {
           in the process. When I'm not hunched over at my computer, I enjoy going to the gym or being out in nature, which influences my interests in what I create.
         </TypographyP>
 
-        <Separator className='my-24 bg-slate-500' />
+        <Separator className='my-12 bg-slate-500' />
         <div>
           {employment.map((job, index) => (
             <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-4 items-start">
