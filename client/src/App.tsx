@@ -180,7 +180,7 @@ function App() {
           <Header />
       </div>
     <main className='relative w-full font-inter text-white flex flex-col items-center justify-center pt-18 px-6 space-y-8'>
-      <div className='relative w-full max-w-4xl p-4 items-center bg-slate-950/80 rounded-md z-80'>
+      <div className='relative w-full max-w-4xl p-8 items-center bg-slate-950/80 rounded-md z-80'>
         <div className='flex w-full gap-4 items-center'>
           <div className=' h-24 w-24'>
             <AspectRatio ratio={1/1} className="">
@@ -211,7 +211,7 @@ function App() {
         <Separator className='my-12 bg-slate-900' />
         <div>
           {employment.map((job, index) => (
-            <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-4 items-start">
+            <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
               <div className='flex items-center gap-1 text-blue-800'>
                 <IoCalendarOutline />
                 <span>{job.start} - {job.end}</span>
@@ -230,7 +230,7 @@ function App() {
         </div>
       </div>
       <div className='relative w-full max-w-4xl flex flex-col items-center justify-center rounded-md Z-50 bg-slate-950/50 text-white border border-slate-900'>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-8 w-full">
           <div className='w-full flex flex-col justify-center'>
             <TypographyH4>University of California - Riverside</TypographyH4>
             <div>
@@ -247,7 +247,7 @@ function App() {
       </div>
       <div className='relative w-full max-w-4xl items-center rounded-md z-80 space-y-8 '>
         {projects.map((project, index) => (
-          <div key={index} className='bg-slate-950/80 p-4 rounded-md'>
+          <div key={index} className='bg-slate-950/80 p-8 rounded-md'>
             <div className='flex justify-between'>
               <TypographyH4>{project.title}</TypographyH4>
               <a href={project.demo}>
