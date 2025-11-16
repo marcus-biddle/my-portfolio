@@ -209,7 +209,7 @@ function App() {
         </TypographyP>
 
         <Separator className='my-12 bg-slate-900' />
-        <div>
+        <div className=' space-y-8'>
           {employment.map((job, index) => (
             <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
               <div className='flex items-center gap-1 text-blue-800'>
