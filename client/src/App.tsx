@@ -250,9 +250,11 @@ function App() {
           <div key={index} className='bg-slate-950/80 p-4 rounded-md'>
             <div className='flex justify-between'>
               <TypographyH4>{project.title}</TypographyH4>
-              <Button variant={'outline'} size={'icon'} className='bg-transparent border-none'>
-                <MdArrowOutward className='size-6 text-blue-800' />
-              </Button>
+              <a href={project.demo}>
+                <Button variant={'outline'} size={'icon'} className='bg-transparent border-none'>
+                  <MdArrowOutward className='size-6 text-blue-800' />
+                </Button>
+              </a>
             </div>
             <TypographyP>{project.description}</TypographyP>
             <ul className='flex flex-wrap my-8 gap-8'>
