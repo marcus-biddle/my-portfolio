@@ -182,7 +182,7 @@ function App() {
     <main className='relative w-full font-inter text-white flex flex-col items-center justify-center pt-18 px-6 space-y-8'>
       <div className='relative w-full max-w-4xl p-8 items-center bg-slate-950/80 rounded-md z-80'>
         <div className='flex w-full gap-4 items-center'>
-          <div className=' h-24 w-24'>
+          <div className='w-28'>
             <AspectRatio ratio={1/1} className="">
                 <img
                   src={pfp}
@@ -198,7 +198,7 @@ function App() {
               <Separator orientation='vertical' className=' bg-slate-500' />
               <TypographyMuted>Fitness</TypographyMuted>
               <Separator orientation='vertical' className=' bg-slate-500' />
-              <TypographyMuted>Cat Owner</TypographyMuted>
+              <TypographyMuted>Cats</TypographyMuted>
             </div>
             
           </div>

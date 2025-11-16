@@ -136,6 +136,6 @@ export function TypographySmall({ children }: TextProps) {
 
 export function TypographyMuted({ children }: TextProps) {
   return (
-    <p className="text-slate-500 text-sm">{children}</p>
+    <p className="text-slate-500 text-xs">{children}</p>
   )
 }
