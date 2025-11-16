@@ -18,9 +18,19 @@ import { IoDownloadOutline } from "react-icons/io5";
 import { Button } from './components/ui/button';
 import pfp from './assets/pfp.jpg';
 import { AspectRatio } from './components/ui/aspect-ratio';
+import { motion } from 'framer-motion'
 
 const RadixFilesDemo = () => {
   const [open, setOpen] = useState(['projects'])
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50); // Change 50 to your threshold
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const highlightElem = document.querySelector('[data-slot="motion-highlight"]') as HTMLElement;
@@ -34,8 +44,14 @@ const RadixFilesDemo = () => {
   }, [open])
 
   return (
-    <div className="relative text-white w-full rounded-md border border-slate-700 bg-slate-950/80 overflow-auto z-100">
-      <Files className="w-full" defaultOpen={['portfolio']} >
+    <motion.div
+      className={` text-white border border-slate-700 bg-slate-950/80 overflow-auto z-90 ${
+        scrolled
+          ? "m-8 rounded-lg transition-all duration-300"
+          : "m-0 rounded-none transition-all duration-300"
+      }`}
+    >
+      <Files className="w-full" defaultOpen={[]} >
         <FolderItem value="portfolio">
           <FolderTrigger
             gitStatus="modified"
@@ -98,7 +114,7 @@ const RadixFilesDemo = () => {
 
         {/* <FileItem icon={FileJsonIcon}>package.json</FileItem> */}
       </Files>
-    </div>
+    </motion.div>
   );
 };
 
@@ -107,17 +123,16 @@ function App() {
  
 
   return (
-    <div className='relative min-h-screen bg-black p-8'>
+    <div className='relative min-h-screen bg-black'>
       <GravityStarsBackground starsOpacity={.85} className='fixed z-40 text-emerald-500' />
     <NavProvider>
     {/* <NavigationMenu /> */}
     
-    <main className='font-inter z-90 text-white flex flex-col'>
-      <div className='relative h-screen w-full flex flex-col items-center rounded-xl space-y-8'>
-        <div className='stickey w-full'>
+    <main className='relative w-full font-inter text-white flex flex-col'>
+      <div className='fixed w-full z-90'>
           <RadixFilesDemo />
         </div>
-        <div className='flex flex-col h-full'>
+      <div className='relative h-screen w-full p-8 flex flex-col items-center justify-center rounded-xl space-y-8 Z-50'>
           <Card className='bg-slate-950/50 text-white border border-slate-700'>
           <CardHeader>
             <CardTitle className='text-slate-300'>
@@ -133,7 +148,7 @@ function App() {
             </CardAction>
           </CardHeader>
           <CardContent>
-            <AspectRatio ratio={16/16} className="bg-transparent">
+            <AspectRatio ratio={16/14} className="bg-transparent">
                 <img
                   src={pfp}
                   alt="Photo by Drew Beamer"
@@ -151,12 +166,10 @@ function App() {
           </CardFooter>
           
         </Card>
-        </div>
-        
       </div>
       {/* <HomePage /> */}
       <ProjectsPage />
-      <SkillsPage />
+      {/* <SkillsPage /> */}
       <ContactPage />
     </main>
     

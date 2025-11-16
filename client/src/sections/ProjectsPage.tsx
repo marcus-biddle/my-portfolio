@@ -11,6 +11,7 @@ import {
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChartPieDonut } from '@/components/PieChart';
+import { Separator } from '@/components/ui/separator';
 
 const projects = [
   {
@@ -79,18 +80,22 @@ const projects = [
 
 export const ProjectsPage = () => {
   return (
-    <PageSection id="projects" title="Projects" subtitle="workshop" titleIcon={TbDeviceProjector}>
+    <div className='z-50 p-8 w-full relative flex flex-col items-center'>
+      <div className='w-full mb-4'>
+        <h1 className='text-2xl md:text-6xl uppercase tracking-tighter font-bold text-slate-500'>Projects</h1>
+        <Separator className='my-2 bg-slate-700' />
+      </div>
       <Carousel
       opts={{
         align: "start",
       }}
-      className="w-full max-w-4xl"
+      className="w-full max-w-3xl"
     >
   <CarouselContent>
     {projects.map((project, index) => (
           <CarouselItem key={index} className="md:basis-2/3 ">
             <div className="p-1">
-              <Card className='bg-slate-950/50 border border-slate-700'>
+              <Card className='bg-slate-950/50 border border-slate-700 text-white'>
                 <CardHeader>
                   <CardTitle>{project.title}</CardTitle>
                   <CardDescription>{project.subtitle}</CardDescription>
@@ -119,6 +124,6 @@ export const ProjectsPage = () => {
   <CarouselPrevious className='bg-slate-900' />
   <CarouselNext className='bg-slate-900' />
 </Carousel>
-    </PageSection>
+    </div>
   );
 };
