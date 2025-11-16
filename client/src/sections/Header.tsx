@@ -1,61 +1,48 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { Button } from '@/components/ui/button';
+import { IoDownloadOutline } from "react-icons/io5";
+import resume from '../assets/resume.pdf'
 
-const sections = ['home', 'projects', 'experience', 'skills'];
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
 
-export const Header = () => {
-    const ref = useRef(null);
-    const [activeIndex, setActiveIndex] = useState('home');
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"],
-    });
-
-    const horizontalX = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
-    useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveIndex(id);
-          }
-        },
-        { threshold: 0.5 }
-      );
-
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => observers.forEach((observer) => observer.disconnect());
-  }, [activeIndex]);
+  useEffect(() => {
+      const onScroll = () => {
+        setScrolled(window.scrollY > 50); // Change 50 to your threshold
+      };
+      window.addEventListener("scroll", onScroll);
+      return () => window.removeEventListener("scroll", onScroll);
+    }, []);
 
   return (
-    <section className='fixed w-full flex justify-center items-center top-4 z-100'>
-        <nav ref={ref} className='flex gap-1 items-center border border-white/15 rounded-full bg-white/10 backdrop-blur'>
-            {sections.map((section, index) => (
-                <div key={index} className='relative'>
-                    <a href={`#${section}`} 
-                        className={`relative px-4 py-1.5 rounded-full font-semibold font-inter transition duration-300 mix-blend-difference`}
-                        onClick={() => {
-                        document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
-                        setActiveIndex(section);
-                        }}
-                    >
-                    {section}
-                    </a>
-                </div>
-            ))}
-            <motion.div style= {{ x: horizontalX }} className='absolute z-0 rounded-full w-18 h-6 bg-cyan-500/15' />
-        </nav>
-    </section>
+    <motion.div
+      className={` text-white border border-slate-700 bg-slate-950/80 overflow-auto z-90 flex justify-between items-center ${
+        scrolled
+          ? "m-8 py-2 px-4 rounded-lg transition-all duration-300"
+          : "m-0 p-2 rounded-none transition-all duration-300"
+      }`}
+    >
+      <Button variant="outline" size="icon" onClick={scrollToTop} className='bg-slate-800/50 border-slate-800/50'>M</Button>
+      <div className=' inline-flex items-center gap-4'>
+        {/* <ul className='inline-flex gap-4 bg-slate-800/50 rounded-md p-2'>
+          <li className=''>Home</li>
+          <li>Experience</li>
+          <li>Projects</li>
+          <li>Contact</li>
+        </ul> */}
+        <a href={resume} download="Marcus_Biddle_Resume.pdf">
+          <Button variant="outline" size="icon" className='bg-transparetn border-slate-800/50'>
+            <IoDownloadOutline className=' size-5' />
+          </Button>
+        </a>
+      </div>
+    </motion.div>
   )
 }
 
+export default Header

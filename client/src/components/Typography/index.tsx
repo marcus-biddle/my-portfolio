@@ -28,17 +28,17 @@ export function TypographyH3({ children }: TextProps) {
   )
 }
 
-export function TypographyH4() {
+export function TypographyH4({ children }: TextProps) {
   return (
     <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
-      People stopped telling jokes
+      {children}
     </h4>
   )
 }
 
 export function TypographyP({ children }: TextProps) {
   return (
-    <p className="leading-7 [&:not(:first-child)]:mt-6">
+    <p className="leading-7 [&:not(:first-child)]:mt-6 text-slate-400">
       {children}
     </p>
   )
@@ -128,14 +128,14 @@ export function TypographyLarge() {
   return <div className="text-lg font-semibold">Are you absolutely sure?</div>
 }
 
-export function TypographySmall() {
+export function TypographySmall({ children }: TextProps) {
   return (
-    <small className="text-sm leading-none font-medium">Email address</small>
+    <small className="text-sm leading-none font-medium">{children}</small>
   )
 }
 
-export function TypographyMuted() {
+export function TypographyMuted({ children }: TextProps) {
   return (
-    <p className="text-muted-foreground text-sm">Enter your email address.</p>
+    <p className="text-slate-500 text-sm">{children}</p>
   )
 }

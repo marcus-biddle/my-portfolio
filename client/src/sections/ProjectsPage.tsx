@@ -1,6 +1,4 @@
-import PageSection from '../components/PageSection'
 import { CiCircleCheck } from "react-icons/ci";
-import { TbDeviceProjector } from "react-icons/tb";
 import {
   Carousel,
   CarouselContent,
