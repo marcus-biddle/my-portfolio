@@ -146,7 +146,7 @@ const projects = [
   {
     title: 'Habit Tracker',
     description: 'Built for my love of every day mundane data. Allows me to track simple things to see how I can progress over time. The app allows the user to create a habit that is measureable where they can update the data and track how far away they are each day from their goal.',
-    github: 'https://github.com/marcus-biddle/FitTrackPro',
+    github: 'https://github.com/marcus-biddle/Habit-Tracker',
     demo: 'https://habit-tracker-smoky-eta.vercel.app/',
     tags: ['React', 'Tailwind', 'Supabase', 'PostgresSQL', 'React Router', 'ShadeCN', 'Vercel']
   },
