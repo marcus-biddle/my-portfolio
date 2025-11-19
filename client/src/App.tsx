@@ -144,6 +144,13 @@ const employment = [
 
 const projects = [
   {
+    title: 'Habit Tracker',
+    description: 'Built for my love of every day mundane data. Allows me to track simple things to see how I can progress over time. The app allows the user to create a habit that is measureable where they can update the data and track how far away they are each day from their goal.',
+    github: 'https://github.com/marcus-biddle/FitTrackPro',
+    demo: 'https://habit-tracker-smoky-eta.vercel.app/',
+    tags: ['React', 'Tailwind', 'Supabase', 'PostgresSQL', 'React Router', 'ShadeCN', 'Vercel']
+  },
+  {
     title: '75 Hard Edition',
     description: 'The app tracks the 75 Hard challenge with strict daily logging and reset logic, enforcing discipline through habit streaks and user progress visualization. It is built with React and TypeScript, featuring state persistence and a responsive user interface. Additionally, it implements secure user authentication and profile management via Supabase Auth.',
     github: 'https://github.com/marcus-biddle/75-Edition',
@@ -156,13 +163,6 @@ const projects = [
     github: 'https://github.com/marcus-biddle/Stock-Tracker',
     demo: 'https://stock-tracker-roan.vercel.app/',
     tags: ['React', 'Typescript', 'Python', 'API', 'LLM Service']
-  },
-  {
-    title: 'FitTrack',
-    description: 'The project is built with React, TypeScript, and TailwindCSS to provide an optimal user experience. It is designed to better visualize data by integrating the Google API for fetching data dynamically. The backend is developed using Express and Node.js, ensuring robust server-side logic and performance.',
-    github: 'https://github.com/marcus-biddle/FitTrackPro',
-    demo: 'https://fit-track-pro-beta.vercel.app/',
-    tags: ['React', 'Tailwind', 'Google API']
   },
 ];
 
