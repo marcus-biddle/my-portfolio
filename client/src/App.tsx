@@ -151,11 +151,11 @@ const projects = [
     tags: ['React', 'Tailwind', 'Supabase', 'PostgresSQL', 'React Router', 'ShadeCN', 'Vercel']
   },
   {
-    title: '75 Hard Edition',
-    description: 'The app tracks the 75 Hard challenge with strict daily logging and reset logic, enforcing discipline through habit streaks and user progress visualization. It is built with React and TypeScript, featuring state persistence and a responsive user interface. Additionally, it implements secure user authentication and profile management via Supabase Auth.',
+    title: 'Mood - song searcher',
+    description: 'Came across key words such as "embeddings" and "vector searches" where I discovered how much they can improve the capabilities of finding relevant and meaningful information in complex data. Therefore, I created this project to grasp the basic understanding on how to create embeddings on songs through the use of OpenAI and using Supabase functions to retrieve the songs for the search result.',
     github: 'https://github.com/marcus-biddle/75-Edition',
     demo: 'https://75-edition.vercel.app/',
-    tags: ['React', 'Typescript', 'TailwindCSS', 'Supabase', 'Auth Integration']
+    tags: ['React', 'Typescript', 'TailwindCSS', 'Supabase', 'OpenAI', 'Vector Searching', 'Embeddings']
   },
   {
     title: 'Stock News Hub',
