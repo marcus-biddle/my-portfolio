@@ -153,8 +153,8 @@ const projects = [
   {
     title: 'Mood - song searcher',
     description: 'Came across key words such as "embeddings" and "vector searches" where I discovered how much they can improve the capabilities of finding relevant and meaningful information in complex data. Therefore, I created this project to grasp the basic understanding on how to create embeddings on songs through the use of OpenAI and using Supabase functions to retrieve the songs for the search result.',
-    github: 'https://github.com/marcus-biddle/75-Edition',
-    demo: 'https://75-edition.vercel.app/',
+    github: 'https://github.com/marcus-biddle/Mood',
+    demo: 'https://mood-nine-pied.vercel.app/',
     tags: ['React', 'Typescript', 'TailwindCSS', 'Supabase', 'OpenAI', 'Vector Searching', 'Embeddings']
   },
   {
