@@ -1,111 +1,10 @@
 import { NavProvider } from './components/NavProvider';
 import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
-import { TypographyH3, TypographyH4, TypographyMuted, TypographyP, TypographySmall,  } from './components/Typography';
-import { IoCalendarOutline } from "react-icons/io5";
-import { Button } from './components/ui/button';
+import { IoCalendarOutline, IoSchoolOutline } from "react-icons/io5";
 import pfp from './assets/pfp.jpg';
 import { AspectRatio } from './components/ui/aspect-ratio';
+import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 import Header from './sections/Header';
-import { Separator } from './components/ui/separator';
-import { MdArrowOutward } from "react-icons/md";
-
-// const RadixFilesDemo = () => {
-//   const [open, setOpen] = useState(['projects'])
-//   const [scrolled, setScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const onScroll = () => {
-//       setScrolled(window.scrollY > 50); // Change 50 to your threshold
-//     };
-//     window.addEventListener("scroll", onScroll);
-//     return () => window.removeEventListener("scroll", onScroll);
-//   }, []);
-
-//   useEffect(() => {
-//     const highlightElem = document.querySelector('[data-slot="motion-highlight"]') as HTMLElement;
-//     if (!highlightElem) return;
-//     if (open.length === 0) {
-//       highlightElem.style.display = 'none';
-//     }
-//     if (open.length > 0 && highlightElem.style.display === 'none') {
-//       highlightElem.style.display = 'block'
-//     }
-//   }, [open])
-
-//   return (
-//     <motion.div
-//       className={` text-white border border-slate-700 bg-slate-950/80 overflow-auto z-90 ${
-//         scrolled
-//           ? "m-8 rounded-lg transition-all duration-300"
-//           : "m-0 rounded-none transition-all duration-300"
-//       }`}
-//     >
-//       <Files className="w-full" defaultOpen={[]} >
-//         <FolderItem value="portfolio">
-//           <FolderTrigger
-//             gitStatus="modified"
-//             className="w-full flex items-center justify-between"
-//           >
-//             Portfolio Menu
-//           </FolderTrigger>
-
-//           <FolderContent>
-//             <SubFiles open={open} onOpenChange={(open) => {
-//               console.log(open);
-//               setOpen(open)
-//               }}>
-//               <FolderItem value="pages">
-//                 <FolderTrigger gitStatus="modified">Pages</FolderTrigger>
-
-//                 <FolderContent onClick={(e) => {
-//                   const target = e.target as HTMLElement;
-//                   const baseName = target.innerText.split('.')[0].toLowerCase();
-
-//                   if (baseName !== 'projects') {
-//                     setOpen([]);
-//                   }
-
-//                   const element = document.getElementById(baseName);
-//                   if (element) {
-//                     element.scrollIntoView();
-//                   } else {
-//                     console.warn(`Element with id '${baseName}' not found.`);
-//                   }
-//                 }}
-//                 >
-//                   <FileItem gitStatus='modified' >Home.tsx</FileItem>
-//                   <FileItem>Skills.tsx</FileItem>
-//                   <FolderItem value="projects">
-//                     <FolderTrigger gitStatus="untracked">Projects</FolderTrigger>
-
-//                     <FolderContent>
-//                       <FileItem gitStatus="untracked">75hard.tsx</FileItem>
-//                       <FileItem gitStatus="untracked">MoodFinder.tsx</FileItem>
-//                       <FileItem gitStatus="untracked">MoodFinder.tsx</FileItem>
-//                     </FolderContent>
-//                   </FolderItem>
-//               <FileItem>Contact.tsx</FileItem>
-//               <FileItem gitStatus="deleted">blog.tsx</FileItem>
-//                 </FolderContent>
-//               </FolderItem>
-
-//               <FolderItem value="socials">
-//                 <FolderTrigger gitStatus="untracked">Socials</FolderTrigger>
-
-//                 <FolderContent>
-//                   <FileItem>github.tsx</FileItem>
-//                   <FileItem gitStatus="untracked">linkedin.tsx</FileItem>
-//                 </FolderContent>
-//               </FolderItem>
-//             </SubFiles>
-//           </FolderContent>
-//         </FolderItem>
-
-//         {/* <FileItem icon={FileJsonIcon}>package.json</FileItem> */}
-//       </Files>
-//     </motion.div>
-//   );
-// };
 
 const employment = [
   {
@@ -167,107 +66,259 @@ const projects = [
 ];
 
 function App() {
-
- 
-
   return (
     <div className='relative min-h-screen bg-black'>
       <GravityStarsBackground starsOpacity={.85} className='fixed z-40 text-emerald-500' />
-    <NavProvider>
-    {/* <NavigationMenu /> */}
-    <div className='fixed w-full z-90'>
-          {/* <RadixFilesDemo /> */}
-          <Header />
-      </div>
-    <main className='relative w-full font-inter text-white flex flex-col items-center justify-center pt-18 px-6 space-y-8'>
-      <div className='relative w-full max-w-4xl p-8 items-center bg-slate-950/80 rounded-md z-80'>
-        <div className='flex w-full gap-4 items-center'>
-          <div className='w-28'>
-            <AspectRatio ratio={1/1} className="">
-                <img
-                  src={pfp}
-                  alt="Photo by Drew Beamer"
-                  className="h-full w-full rounded-full object-cover"
-                />
-            </AspectRatio>
-          </div>
-          <div className='w-full text-white space-y-1'>
-            <TypographyH3>Marcus Biddle</TypographyH3>
-            <div className='flex items-center gap-2 h-4'>
-              <TypographyMuted>Developer</TypographyMuted>
-              <Separator orientation='vertical' className=' bg-slate-500' />
-              <TypographyMuted>Fitness</TypographyMuted>
-              <Separator orientation='vertical' className=' bg-slate-500' />
-              <TypographyMuted>Cats</TypographyMuted>
+      <NavProvider>
+        <Header />
+        <main className='relative w-full font-inter text-white flex flex-col items-center justify-center pt-32 px-6 space-y-8'>
+      <div id="about" className='relative w-full max-w-4xl z-80 scroll-mt-32'>
+        {/* Profile Section */}
+        <div className='relative overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-8 md:p-12 shadow-2xl'>
+          <div className='absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none' />
+          
+          <div className='relative flex flex-col md:flex-row gap-8 items-start md:items-center'>
+            {/* Profile Image */}
+            <div className='relative group'>
+              <div className='absolute -inset-1 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full opacity-20 group-hover:opacity-30 transition-opacity blur-sm' />
+              <div className='relative w-32 h-32 md:w-36 md:h-36'>
+                <AspectRatio ratio={1/1} className="rounded-full overflow-hidden ring-4 ring-slate-800/50">
+                  <img
+                    src={pfp}
+                    alt="Marcus Biddle"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </AspectRatio>
+              </div>
             </div>
-            
+
+            {/* Profile Info */}
+            <div className='flex-1 space-y-4'>
+              <div>
+                <h3 className='scroll-m-20 text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent'>
+                  Marcus Biddle
+                </h3>
+                <div className='flex flex-wrap items-center gap-3 mt-3'>
+                  {['Developer', 'Fitness', 'Cats'].map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className='px-3 py-1 text-xs font-medium rounded-full bg-slate-800/60 text-slate-300 border border-slate-700/50 hover:border-blue-500/50 transition-colors'
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bio */}
+          <div className='relative mt-8 pt-8 border-t border-slate-800/50'>
+            <p className='text-slate-300 leading-relaxed text-base md:text-lg'>
+              I'm a Web Developer with a background in Quality Assurance, specializing in Automation. I love building projects that make my life easier and more enjoyable. When I'm not coding, I'm usually at the gym or out in nature, and those experiences definitely shape how I approach the things I create.
+            </p>
           </div>
         </div>
-        <TypographyP>
-          I'm a Web Developer with a background work experience in Quality Assuarance specializing in Automation. I enjoy creating projects that can help improve someone's lifestyle and provide a seamless user experience
-          in the process. When I'm not hunched over at my computer, I enjoy going to the gym or being out in nature, which influences my interests in what I create.
-        </TypographyP>
 
-        <Separator className='my-12 bg-slate-900' />
-        <div className=' space-y-8'>
-          {employment.map((job, index) => (
-            <div key={index} className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-start">
-              <div className='flex items-center gap-1 text-blue-800'>
-                <IoCalendarOutline />
-                <span>{job.start} - {job.end}</span>
-              </div>
-              <div className='col-span-2'>
-                <div className='flex flex-col'>
-                  <TypographyH4>{job.title}</TypographyH4>
-                  <div className='text-slate-500'>
-                    <TypographyH4>{job.employer}</TypographyH4>
+        {/* Employment Section */}
+        <div id="experience" className='mt-12 space-y-6 scroll-mt-32'>
+          <div className='flex items-center gap-3 mb-8'>
+            <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+            <h2 className='text-xl font-semibold text-white px-4'>Work Experience</h2>
+            <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+          </div>
+
+          <div className='relative'>
+            {/* Timeline line */}
+            <div className='absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 via-slate-700 to-transparent hidden md:block' />
+
+            <div className='space-y-8'>
+              {employment.map((job, index) => (
+                <div
+                  key={index}
+                  className='relative group'
+                >
+                  {/* Timeline dot */}
+                  <div className='absolute left-0 md:left-6 top-6 w-3 h-3 rounded-full bg-blue-500 ring-4 ring-slate-950 z-10 hidden md:block group-hover:ring-blue-500/30 transition-all' />
+
+                  <div className='ml-0 md:ml-16 bg-slate-900/60 backdrop-blur-sm border border-slate-800/50 rounded-xl p-6 md:p-8 hover:border-slate-700/70 transition-all hover:shadow-lg hover:shadow-blue-500/5'>
+                    <div className='flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4'>
+                      <div className='flex-1'>
+                        <h3 className='text-xl font-semibold text-white mb-1 group-hover:text-blue-400 transition-colors'>
+                          {job.title}
+                        </h3>
+                        <p className='text-slate-400 font-medium'>
+                          {job.employer}
+                        </p>
+                      </div>
+                      <div className='flex items-center gap-2 text-sm text-blue-400 bg-blue-500/10 px-4 py-2 rounded-lg border border-blue-500/20 w-fit'>
+                        <IoCalendarOutline className='w-4 h-4' />
+                        <span className='font-medium'>{job.start} - {job.end}</span>
+                      </div>
+                    </div>
+                    <p className='text-slate-300 leading-relaxed text-sm md:text-base'>
+                      {job.description}
+                    </p>
                   </div>
                 </div>
-                <TypographyP>{job.description}</TypographyP>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Education Section */}
+      <div id="education" className='relative w-full max-w-4xl z-80 mt-12 scroll-mt-32'>
+        <div className='flex items-center gap-3 mb-8'>
+          <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+          <h2 className='text-xl font-semibold text-white px-4'>Education</h2>
+          <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+        </div>
+
+        <div className='relative overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-8 md:p-10 shadow-2xl hover:border-slate-700/70 transition-all'>
+          <div className='absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-blue-500/5 pointer-events-none' />
+          
+          <div className='relative'>
+            <div className='flex flex-col md:flex-row md:items-start gap-6 md:gap-8'>
+              {/* Icon/Visual Element */}
+              <div className='flex-shrink-0'>
+                <div className='w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-500/20 to-blue-500/20 border border-emerald-500/30 flex items-center justify-center hover:scale-105 transition-transform'>
+                  <IoSchoolOutline className='w-8 h-8 text-emerald-400' />
+                </div>
+              </div>
+
+              {/* Education Content */}
+              <div className='flex-1 space-y-6'>
+                <div>
+                  <h3 className='text-2xl font-semibold mb-2 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent'>
+                    University of California - Riverside
+                  </h3>
+                  <div className='flex items-center gap-2 text-emerald-400 bg-emerald-500/10 px-4 py-2 rounded-lg border border-emerald-500/20 w-fit mt-3'>
+                    <span className='text-sm font-medium'>Bachelors in Economics</span>
+                  </div>
+                </div>
+
+                {/* Relevant Courses */}
+                <div className='pt-4 border-t border-slate-800/50'>
+                  <p className='text-sm font-medium text-slate-400 mb-4 uppercase tracking-wide'>Relevant Courses</p>
+                  <div className='flex flex-wrap gap-3'>
+                    {['OOP', 'Discrete Structures', 'IT Management'].map((course, idx) => (
+                      <span
+                        key={idx}
+                        className='px-4 py-2 text-sm font-medium rounded-lg bg-slate-800/60 text-slate-300 border border-slate-700/50 hover:border-emerald-500/50 hover:text-emerald-400 transition-all cursor-default'
+                      >
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Projects Section */}
+      <div id="projects" className='relative w-full max-w-4xl z-80 mt-12 scroll-mt-32'>
+        <div className='flex items-center gap-3 mb-8'>
+          <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+          <h2 className='text-xl font-semibold text-white px-4'>Projects</h2>
+          <div className='h-px flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+        </div>
+
+        <div className='space-y-6'>
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className='group relative overflow-hidden bg-gradient-to-br from-slate-900/90 via-slate-950/90 to-slate-900/90 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-8 md:p-10 shadow-2xl hover:border-slate-700/70 transition-all hover:shadow-lg hover:shadow-blue-500/5'
+            >
+              <div className='absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-emerald-500/5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity' />
+              
+              <div className='relative'>
+                {/* Header */}
+                <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6'>
+                  <div className='flex-1'>
+                    <h3 className='text-2xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors'>
+                      {project.title}
+                    </h3>
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className='flex items-center gap-3'>
+                    <a
+                      href={project.github}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='p-2 rounded-lg bg-slate-800/60 border border-slate-700/50 text-slate-400 hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 transition-all'
+                      aria-label='View on GitHub'
+                    >
+                      <FaGithub className='w-5 h-5' />
+                    </a>
+                    <a
+                      href={project.demo}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 hover:bg-blue-500/20 hover:border-blue-500/40 transition-all group/link'
+                    >
+                      <span className='text-sm font-medium'>Live Demo</span>
+                      <FaExternalLinkAlt className='w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform' />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className='text-slate-300 leading-relaxed text-base mb-6'>
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className='flex flex-wrap gap-3 pt-4 border-t border-slate-800/50'>
+                  {project.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className='px-3 py-1.5 text-xs font-medium rounded-lg bg-slate-800/60 text-slate-300 border border-slate-700/50 hover:border-blue-500/50 hover:text-blue-400 transition-all'
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className='relative w-full max-w-4xl flex flex-col items-center justify-center rounded-md Z-50 bg-slate-950/50 text-white border border-slate-900'>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-8 w-full">
-          <div className='w-full flex flex-col justify-center'>
-            <TypographyH4>University of California - Riverside</TypographyH4>
-            <div>
-              <TypographyP>Bachelors in Economics</TypographyP>
-            </div>
+
+      {/* Footer */}
+      <footer className='relative w-full max-w-4xl z-80 my-16'>
+        <div className='flex flex-col items-center gap-6'>
+          <div className='h-px w-full max-w-md bg-gradient-to-r from-transparent via-slate-700 to-transparent' />
+          
+          <div className='flex items-center gap-6'>
+            <a
+              href='https://github.com/marcus-biddle'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900/60 border border-slate-800/50 text-slate-400 hover:text-white hover:border-slate-700/70 hover:bg-slate-800/60 transition-all group'
+              aria-label='GitHub Profile'
+            >
+              <FaGithub className='w-5 h-5 group-hover:scale-110 transition-transform' />
+              <span className='text-sm font-medium'>GitHub</span>
+            </a>
+            
+            <a
+              href='https://www.linkedin.com/in/marcusbiddle/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900/60 border border-slate-800/50 text-slate-400 hover:text-white hover:border-slate-700/70 hover:bg-slate-800/60 transition-all group'
+              aria-label='LinkedIn Profile'
+            >
+              <FaLinkedin className='w-5 h-5 group-hover:scale-110 transition-transform' />
+              <span className='text-sm font-medium'>LinkedIn</span>
+            </a>
           </div>
-          <div className='w-full flex flex-col justify-center'>
-            <TypographySmall>Relevant Courses</TypographySmall>
-            <div className='text-slate-400'>
-              <TypographySmall> OOP, Discrete Structures, IT Management</TypographySmall>
-            </div>
-          </div>
+
+          <p className='text-sm text-slate-500 mt-2'>
+            © {new Date().getFullYear()} Marcus Biddle. All rights reserved.
+          </p>
         </div>
-      </div>
-      <div className='relative w-full max-w-4xl items-center rounded-md z-80 space-y-8 '>
-        {projects.map((project, index) => (
-          <div key={index} className='bg-slate-950/80 p-8 rounded-md'>
-            <div className='flex justify-between'>
-              <TypographyH4>{project.title}</TypographyH4>
-              <a href={project.demo}>
-                <Button variant={'outline'} size={'icon'} className='bg-transparent border-none'>
-                  <MdArrowOutward className='size-6 text-blue-800' />
-                </Button>
-              </a>
-            </div>
-            <TypographyP>{project.description}</TypographyP>
-            <ul className='flex flex-wrap my-8 gap-8'>
-              {project.tags.map((tag, index) => (
-                <li key={index} className='text-sm text-blue-700'>{tag}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      <footer className='relative w-full max-w-4xl items-center flex gap-8 justify-center z-80 my-12 text-slate-400'>
-        <a href='https://github.com/marcus-biddle' className='hover:text-white cursor-pointer'>Github</a>
-        <a href='https://www.linkedin.com/in/marcusbiddle/' className='hover:text-white cursor-pointer'>Linkedin</a>
       </footer>
     </main>
     
