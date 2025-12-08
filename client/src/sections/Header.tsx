@@ -74,7 +74,6 @@ const Header = () => {
             ? 'rgba(15, 23, 42, 0.8)' 
             : 'rgba(0, 0, 0, 0)',
           backdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'blur(0px)',
-          WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(180%)' : 'blur(0px)',
           borderBottomWidth: scrolled ? '1px' : '0px',
           borderBottomColor: scrolled ? 'rgba(148, 163, 184, 0.1)' : 'transparent',
           boxShadow: scrolled 
