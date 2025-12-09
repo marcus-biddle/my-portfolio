@@ -1,7 +1,7 @@
 import { NavProvider } from './components/NavProvider';
 import { GravityStarsBackground } from '@/components/animate-ui/components/backgrounds/gravity-stars';
 import { IoCalendarOutline, IoSchoolOutline } from "react-icons/io5";
-import pfp from './assets/pfp.jpg';
+import pfp from './assets/pfp.jpeg';
 import { AspectRatio } from './components/ui/aspect-ratio';
 import { FaGithub, FaLinkedin, FaExternalLinkAlt } from "react-icons/fa";
 import Header from './sections/Header';
